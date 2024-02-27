@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite dev",
+    "build": "",
+    "dev": "bun --watch src/index.ts",
     "lint": "eslint ."
   },
   "dependencies": {
-    "vite": "^5.1.4"
+    "hono": "^4.0.7"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.3",
