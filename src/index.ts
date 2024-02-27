@@ -1,4 +1,5 @@
 import app from "./app.ts";
-import "./paths.ts";
+
+import "./routes/";
 
 export default app;
