@@ -1,0 +1,39 @@
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        scripts:
+          - build
+          - lint
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: bun-deps-${{ hashFiles('package.json') }}
+          restore-keys: bun-deps-
+
+      - name: Install Dependencies
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: "bun install"
+
+      - run: "bun run ${{ matrix.scripts }}"
