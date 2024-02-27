@@ -1,0 +1,5 @@
+{
+  "name": "firewarden",
+  "private": true,
+  "type": "module"
+}
