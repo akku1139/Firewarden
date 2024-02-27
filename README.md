@@ -1,0 +1,2 @@
+# Firewarden
+Alternative Bitwarden server
