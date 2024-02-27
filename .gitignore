@@ -3,4 +3,5 @@ node_modules/
 bun.lockb
 
 .replit
+replit.nix
 .config/
